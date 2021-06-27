@@ -1,0 +1,51 @@
+@keyframes hide {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        margin-bottom:0px;
+    }
+}
+textarea {
+    min-height: 400px;
+    
+}
+#email-list {
+    animation-name: hide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+#archivebutton{
+    
+    position:absolute; top:3px; right:2px;bottom: 2px;
+}
+#recipent{
+    float: left;
+    margin-right : 50px;
+    font-weight: 500;
+    margin-top: 3px;
+}
+#subject2{
+    float: left;
+    margin-left : 5px;
+    font-weight: 450;
+    margin-top: 3px;
+    margin-right: 20px;
+}
+#timestamp{
+    font-weight: 475;
+    margin-top: 3px;
+}
