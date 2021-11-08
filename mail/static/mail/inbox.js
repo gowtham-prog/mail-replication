@@ -29,18 +29,17 @@ function send_mail(){
   fetch('/emails', {
     method: 'POST',
     body: JSON.stringify({
-        recipients: recipients,
-        subject: subject,
-        body : body,
+      recipients: recipients,
+      subject: subject,
+      body : body,
     })
   })
   .then(response => response.json())
   .then(result => {
-      // Print result
-      console.log(result);
-  });
-  localStorage.clear();
-  load_mailbox('sent');
+    console.log(result);
+    refresh()
+  })
+  
   return false;
 }
 
@@ -130,12 +129,11 @@ function show_mail(mail,mailbox){
   timestamp.addEventListener('click',()=>{
     show_detail(mail.id)
   })
-  if(mailbox==="sent" ||mail.read){
+  if(mailbox==="sent" ){
     var element  = document.querySelector("#archivebutton")
     element.parentNode.removeChild(element)
   }
   
-  return false;
   
 }
 
@@ -214,5 +212,9 @@ function read(email_id){
       read : true
     })
   })
-  localStorage(clear)
+
+}
+function refresh(){
+  localStorage.clear();
+  load_mailbox('sent');
 }
